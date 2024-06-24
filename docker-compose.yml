@@ -1,0 +1,30 @@
+services:
+  frontend:
+    build: 
+      context: frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+    restart: always
+    networks:
+      - app
+    depends_on:
+      - backend
+
+  backend:
+    restart: always
+    build:
+      context: backend
+      target: dev
+    volumes:
+      - ./backend:/app
+    networks:
+      - app
+      - api
+    ports:
+      - "5001:8000"
+
+networks:
+  app:
+  api:
