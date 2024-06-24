@@ -1,12 +1,10 @@
 services:
   frontend:
     build: 
-      context: frontend
-      target: dev
+      context: ./frontend
+      dockerfile: Dockerfile.prod
     ports:
-      - "3000:3000"
-    volumes:
-      - ./frontend:/app
+      - "80:80"
     restart: always
     networks:
       - app
@@ -16,10 +14,8 @@ services:
   backend:
     restart: always
     build:
-      context: backend
-      target: dev
-    volumes:
-      - ./backend:/app
+      context: ./backend
+      target: prod
     networks:
       - app
       - api
