@@ -21,7 +21,7 @@ app.get('/people', (req, res) => {
     res.json(people);
 });
 
-app.listen(8000, () => {
-    console.log('Server is running on port 8000');
+app.listen(3001, () => {
+    console.log('Server is running on port 3001');
 });
 

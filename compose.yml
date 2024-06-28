@@ -1,8 +1,7 @@
 services:
   frontend:
     build: 
-      context: ./frontend
-      target: dev
+      target: dev-frontend
     ports:
       - "3000:3000"
     restart: always
@@ -16,15 +15,14 @@ services:
   backend:
     restart: always
     build:
-      context: ./backend
-      target: dev
+      target: dev-backend
     volumes:
       - ./backend:/app
     networks:
       - app
       - api
     ports:
-      - "8000:8000"
+      - "3001:3001"
 
 networks:
   app:
