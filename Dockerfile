@@ -5,6 +5,7 @@ FROM base AS dev-backend
 COPY backend/package*.json /app/
 RUN npm install
 COPY . .
+RUN npm i nodemon
 EXPOSE 3001
 CMD ["npm", "run", "dev"]
 
