@@ -13,7 +13,8 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-FROM nginx:stable-alpine3.19-slim
-COPY --from=build /app/build /usr/share/nginx/html
+FROM nginx:stable-alpine3.19-slim AS client-build
+COPY --from=prod-frontend /app/build /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 ENTRYPOINT [ "nginx", "-g", "daemon off;" ]

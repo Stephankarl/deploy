@@ -13,7 +13,8 @@ function App() {
   }, [])
   
   const getPeople = async () => {
-    const response = await axios.get('/people');
+    const response = await axios.get('api/people');
+    console.log(response.data)
     setPeople(response.data);
   }
 

@@ -2,9 +2,9 @@ services:
   frontend:
     build: 
       context: ./frontend
-      target: dev-frontend
+      target: client-build
     ports:
-      - "3000:3000"
+      - "3000:80"
     restart: always
     networks:
       - app
@@ -15,7 +15,7 @@ services:
     restart: always
     build:
       context: ./backend
-      target: dev-backend
+      target: prod-backend
     networks:
       - app
       - api
