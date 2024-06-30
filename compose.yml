@@ -1,6 +1,6 @@
 services:
   frontend:
-    build: 
+    build:
       context: ./frontend
       target: client-build
     ports:
@@ -19,8 +19,8 @@ services:
     networks:
       - app
       - api
-    ports:
-      - "3001:3001"
+    expose:
+      - "3001"
 
 networks:
   app:
